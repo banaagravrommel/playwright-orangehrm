@@ -31,7 +31,7 @@ test.describe('Claims Page Tests', () => {
     await claimPage.searchClaim('');
   });
 
-  test('Search and Assign a Claim to Admin Admin123', async ({ page }) => {
+  test('Search and Assign a Claim', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const menuPage = new MainMenuPage(page);
     const claimPage = new ClaimPage(page);
@@ -43,7 +43,7 @@ test.describe('Claims Page Tests', () => {
 
     // 🔎 Search and assign
     await claimPage.searchClaim('');
-    await claimPage.assignFirstClaimTo('Admin Admin123');
+    await claimPage.assignFirstClaimTo('Jason Duarte');
   });
 
 });

@@ -6,15 +6,12 @@
 # Error details
 
 ```
-Error: locator.click: Error: strict mode violation: getByText('CAN - Bereavement') resolved to 2 elements:
-    1) <span data-v-1e0133f0="">CAN - CAN - BereavementKKK</span> aka getByRole('option', { name: 'CAN - CAN - BereavementKKK' }).locator('span')
-    2) <div data-v-6c07a142="">CAN - CAN - BereavementKKK</div> aka getByRole('cell', { name: 'CAN - CAN - BereavementKKK' }).locator('div')
-
+Error: locator.click: Test timeout of 30000ms exceeded.
 Call log:
-  - waiting for getByText('CAN - Bereavement')
+  - waiting for getByText('Jason Duarte', { exact: true })
 
-    at LeavePage.selectLeaveType (C:\Users\Rav\Documents\Playwright\playwright-orangehrm\pages\LeavePage.ts:28:37)
-    at C:\Users\Rav\Documents\Playwright\playwright-orangehrm\tests\leave.spec.ts:28:3
+    at LeavePage.selectEmployee (C:\Users\Rav\Documents\Playwright\playwright-orangehrm\pages\LeavePage.ts:35:54)
+    at C:\Users\Rav\Documents\Playwright\playwright-orangehrm\tests\leave.spec.ts:29:3
 ```
 
 # Page snapshot
@@ -75,7 +72,7 @@ Call log:
   - list:
     - listitem:
       - img "profile picture"
-      - paragraph: pasta Kumar
+      - paragraph: manda user
       - text: 
   - navigation "Topbar Menu":
     - list:
@@ -102,21 +99,10 @@ Call log:
 - textbox "yyyy-dd-mm": 2024-01-01
 - text:  To Date
 - textbox "yyyy-dd-mm": 2025-04-01
-- text:  Show Leave with Status* -- Select --  Pending Approval  Rejected  Leave Type -- Select -- 
+- text:  Show Leave with Status* -- Select --  Pending Approval  Rejected  Leave Type CAN - Bereavement  Employee Name
+- textbox "Type for hints...": Jason Duarte
 - listbox:
-  - option "-- Select --"
-  - option "CAN - CAN - BereavementKKK"
-  - option "CAN - FMLA"
-  - option "CAN - Matternity"
-  - option "CAN - Personal"
-  - option "CAN - Vacation"
-  - option "US - Bereavement"
-  - option "US - FMLA"
-  - option "US - Matternity"
-  - option "US - Personal"
-  - option "US - Vacation"
-- text: Employee Name
-- textbox "Type for hints..."
+  - option "No Records Found"
 - text: Sub Unit -- Select -- 
 - paragraph: Include Past Employees
 - checkbox
@@ -124,7 +110,7 @@ Call log:
 - paragraph: "* Required"
 - button "Reset"
 - button "Search"
-- text: (1) Record Found
+- text: No Records Found
 - table:
   - rowgroup:
     - row " Date Employee Name Leave Type Leave Balance (Days) Number of Days Status Comments Actions":
@@ -139,21 +125,7 @@ Call log:
       - columnheader "Status"
       - columnheader "Comments"
       - columnheader "Actions"
-  - rowgroup:
-    - row " 2025-01-05 to 2025-08-05 pasta Pavan Kumar CAN - CAN - BereavementKKK 4.00 6.00 Pending Approval (6.00) abcd ":
-      - cell "":
-        - checkbox ""
-        - text: 
-      - cell "2025-01-05 to 2025-08-05"
-      - cell "pasta Pavan Kumar"
-      - cell "CAN - CAN - BereavementKKK"
-      - cell "4.00"
-      - cell "6.00"
-      - cell "Pending Approval (6.00)"
-      - cell "abcd"
-      - cell "":
-        - listitem:
-          - button ""
+  - rowgroup
 - paragraph: OrangeHRM OS 5.7
 - paragraph:
   - text: © 2005 - 2025
@@ -192,15 +164,15 @@ Call log:
   25 |
   26 |   async selectLeaveType(type: string) {
   27 |     await this.page.locator('.oxd-select-wrapper > .oxd-select-text > .oxd-select-text--after > .oxd-icon').first().click();
-> 28 |     await this.page.getByText(type).click();
-     |                                     ^ Error: locator.click: Error: strict mode violation: getByText('CAN - Bereavement') resolved to 2 elements:
+  28 |     await this.page.getByText(type).click();
   29 |   }
   30 |
   31 |   async selectEmployee(name: string) {
   32 |     const input = this.page.getByRole('textbox', { name: 'Type for hints...' });
   33 |     await input.click();
   34 |     await input.fill(name);
-  35 |     await this.page.getByText(name, { exact: true }).click();
+> 35 |     await this.page.getByText(name, { exact: true }).click();
+     |                                                      ^ Error: locator.click: Test timeout of 30000ms exceeded.
   36 |   }
   37 |
   38 |   async selectSubUnit(unit: string) {

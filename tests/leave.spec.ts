@@ -26,7 +26,7 @@ test('Search leave using all filters', async ({ page }) => {
   await leavePage.fillDateRange('2024-01-01', '2025-04-01');
   await leavePage.selectStatus('Rejected');
   await leavePage.selectLeaveType('CAN - Bereavement');
-  await leavePage.selectEmployee('Charles Carter');
+  await leavePage.selectEmployee('Jason Duarte');
   await leavePage.selectSubUnit('Administration');
   await leavePage.clickSearch();
 
@@ -47,7 +47,7 @@ test('Search leave using all filters', async ({ page }) => {
     await leavePage.fillDateRange('2023-01-01', '2023-12-31');
     await leavePage.selectStatus('Scheduled');
     await leavePage.selectLeaveType('CAN - Vacation');
-    await leavePage.selectEmployee('Orange Test');
+    await leavePage.selectEmployee('Jason Duarte');
     await leavePage.selectSubUnit('All');
     await leavePage.clickSearch();
   

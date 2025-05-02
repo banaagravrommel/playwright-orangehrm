@@ -1,7 +1,7 @@
 # Test info
 
-- Name: Search leave using all filters
-- Location: C:\Users\Rav\Documents\Playwright\playwright-orangehrm\tests\leave.spec.ts:17:5
+- Name: Reset leave search filters
+- Location: C:\Users\Rav\Documents\Playwright\playwright-orangehrm\tests\leave.spec.ts:38:7
 
 # Error details
 
@@ -11,7 +11,7 @@ Call log:
   - waiting for getByText('Jason Duarte', { exact: true })
 
     at LeavePage.selectEmployee (C:\Users\Rav\Documents\Playwright\playwright-orangehrm\pages\LeavePage.ts:35:54)
-    at C:\Users\Rav\Documents\Playwright\playwright-orangehrm\tests\leave.spec.ts:29:3
+    at C:\Users\Rav\Documents\Playwright\playwright-orangehrm\tests\leave.spec.ts:50:5
 ```
 
 # Page snapshot
@@ -96,10 +96,10 @@ Call log:
 - button ""
 - separator
 - text: From Date
-- textbox "yyyy-dd-mm": 2024-01-01
+- textbox "yyyy-dd-mm": 2023-01-01
 - text:  To Date
-- textbox "yyyy-dd-mm": 2025-04-01
-- text:  Show Leave with Status* -- Select --  Pending Approval  Rejected  Leave Type CAN - Bereavement  Employee Name
+- textbox "yyyy-dd-mm": 2023-31-12
+- text:  Show Leave with Status* -- Select --  Pending Approval  Scheduled  Leave Type CAN - Vacation  Employee Name
 - textbox "Type for hints...": Jason Duarte
 - listbox:
   - option "No Records Found"

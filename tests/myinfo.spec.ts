@@ -38,18 +38,29 @@ test('Edit Personal Details', async ({ page }) => {
   await licenseNumber.fill('20001');
   await licenseExpiry.fill('2027-01-01');
 
-  await page.locator('form').filter({ hasText: 'Employee Full NameEmployee' }).locator('i').nth(1).click();
-  await page.locator('.oxd-select-dropdown > div').nth(1).click();
+  // Replace fragile icon click with label-based dropdown for Nationality
+  const nationalityDropdown = page.locator('label:has-text("Nationality")').locator('..').locator('i');
+  await expect(nationalityDropdown).toBeVisible({ timeout: 10000 });
+  await nationalityDropdown.click();
+  await page.locator('.oxd-select-dropdown > div').nth(1).click(); // Pick second option
 
-  await page.locator('form').filter({ hasText: 'Employee Full NameEmployee' }).locator('i').nth(2).click();
+  // Replace fragile icon click with label-based dropdown for Marital Status
+  const maritalStatusDropdown = page.locator('label:has-text("Marital Status")').locator('..').locator('i');
+  await expect(maritalStatusDropdown).toBeVisible({ timeout: 10000 });
+  await maritalStatusDropdown.click();
   await page.getByRole('option', { name: 'Single' }).locator('span').click();
 
+  // Date of Birth
   const dob = page.getByRole('textbox', { name: 'yyyy-dd-mm' }).nth(1);
   await dob.fill('2000-01-01');
 
+  // Gender selection
   await page.locator('label').filter({ hasText: /^Male$/ }).locator('span').click();
+
+  // Save
   await page.locator('form').filter({ hasText: 'Employee Full NameEmployee' }).getByRole('button').click();
 });
+
 
 test('Edit Contact Details', async ({ page }) => {
   const myInfoPage = new MyInfoPage(page);

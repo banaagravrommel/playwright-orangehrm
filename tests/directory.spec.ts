@@ -23,7 +23,7 @@ test('Search for a user', async ({ page }) => {
   await loginPage.login(process.env.USERNAME!, process.env.PASSWORD!);
 
   await menuPage.navigateTo('Directory');
-  await directoryPage.searchEmployee('Amelia Brown');
+  await directoryPage.searchEmployee('Jason Duarte');
 
 });
 
@@ -36,10 +36,10 @@ test('Open A Profile', async ({ page }) => {
   await loginPage.login(process.env.USERNAME!, process.env.PASSWORD!);
 
   await menuPage.navigateTo('Directory');
-  await directoryPage.searchEmployee('Amelia Brown');
+  await directoryPage.searchEmployee('Jason Duarte');
 
   // Open profile without checking employee details
-  await directoryPage.openEmployeeProfile('Amelia Brown');
+  await directoryPage.openEmployeeProfile('Jason Duarte');
 });
 
 test('Reset Search Field', async ({ page }) => {
@@ -51,7 +51,7 @@ test('Reset Search Field', async ({ page }) => {
   await loginPage.login(process.env.USERNAME!, process.env.PASSWORD!);
 
   await menuPage.navigateTo('Directory');
-  await directoryPage.searchEmployee('Amelia Brown');
+  await directoryPage.searchEmployee('Jason Duarte');
 
   await directoryPage.resetSearchField();
 

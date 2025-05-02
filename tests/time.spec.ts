@@ -19,10 +19,10 @@ test('Search and view timesheet', async ({ page }) => {
   const timePage = new TimePage(page);
 
   await loginPage.goto();
-  await loginPage.login('Admin', 'admin123');
+  await loginPage.login('Jason Duarte', 'Jason Duarte');
   await menuPage.navigateTo('Time');
 
-  await timePage.searchEmployee('Admin Admin123', 'Admin Admin123');
+  await timePage.searchEmployee('Jason Duarte', 'Jason Duarte');
 
 });
 
@@ -33,9 +33,9 @@ test('Create a timesheet after viewing employee', async ({ page }) => {
   const timePage = new TimePage(page);
 
   await loginPage.goto();
-  await loginPage.login('Admin', 'admin123');
+  await loginPage.login('Jason Duarte', 'Jason Duarte');
   await menuPage.navigateTo('Time');
 
-  await timePage.searchEmployee('Admin', 'Admin Admin123');
+  await timePage.searchEmployee('Jason Duarte', 'Jason Duarte');
   await timePage.createTimesheet();
 });

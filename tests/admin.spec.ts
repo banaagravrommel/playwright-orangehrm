@@ -43,7 +43,7 @@ test.describe('Admin User Management', () => {
   test('Add a new user without post-save verification', async ({ page }) => {
     await adminPage.addUser({
       userRole: 'Admin',
-      employeeName: 'Amelia Brown', // Employee Name is typed char-by-char.
+      employeeName: 'Jason Duarte', // Employee Name is typed char-by-char.
       status: 'Enabled',             // Must exactly match the dropdown option text.
       password: 'Test0987!',
       confirmPassword: 'Test0987!',

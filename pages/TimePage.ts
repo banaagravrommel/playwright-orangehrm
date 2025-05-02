@@ -40,11 +40,10 @@ export class TimePage {
     // 📸 Optional: capture a screenshot for debugging (can remove later)
     await this.page.screenshot({ path: 'before-create-timesheet.png', fullPage: true });
   
-    // 🆕 Wait for the "Create Timesheet" button instead of "Submit"
-    const createTimesheetButton = this.page.getByRole('button', { name: 'Create Timesheet' });
-    await expect(createTimesheetButton).toBeVisible({ timeout: 40000 }); // ⬅️ 40s timeout
+    const createSubmittButton = this.page.getByRole('button', { name: 'Submit' });
+    await expect(createSubmittButton).toBeVisible({ timeout: 40000 }); // ⬅️ 40s timeout
   
-    await createTimesheetButton.click();
+    await createSubmittButton.click();
   
     // ✅ After clicking, optionally re-check the Timesheet heading
     await expect(timesheetHeading).toBeVisible({ timeout: 10000 });
